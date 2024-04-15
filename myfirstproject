@@ -1,0 +1,60 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class CountryInfo {
+    private String president;
+    private String primeMinister;
+    private String capital;
+    private String flagUrl;
+
+    // Constructor
+    public CountryInfo(String president, String primeMinister, String capital, String flagUrl) {
+        this.president = president;
+        this.primeMinister = primeMinister;
+        this.capital = capital;
+        this.flagUrl = flagUrl;
+    }
+
+    // Getters
+    public String getPresident() {
+        return president;
+    }
+
+    public String getPrimeMinister() {
+        return primeMinister;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public String getFlagUrl() {
+        return flagUrl;
+    }
+
+    public static void main(String[] args) {
+        // Sample data for countries
+        Map<String, CountryInfo> countryMap = new HashMap<>();
+        countryMap.put("USA", new CountryInfo("Joe Biden", "Kamala Harris", "Washington, D.C.", "https://www.example.com/usa_flag.jpg"));
+        countryMap.put("UK", new CountryInfo("Boris Johnson", "Boris Johnson", "London", "https://www.example.com/uk_flag.jpg"));
+        countryMap.put("Germany", new CountryInfo("Frank-Walter Steinmeier", "Angela Merkel", "Berlin", "https://www.example.com/germany_flag.jpg"));
+        countryMap.put("France", new CountryInfo("Emmanuel Macron", "Emmanuel Macron", "Paris", "https://www.example.com/france_flag.jpg"));
+        countryMap.put("China", new CountryInfo("Xi Jinping", "Li Keqiang", "Beijing", "https://www.example.com/china_flag.jpg"));
+        countryMap.put("Russia", new CountryInfo("Vladimir Putin", "Mikhail Mishustin", "Moscow", "https://www.example.com/russia_flag.jpg"));
+        countryMap.put("India", new CountryInfo("Ram Nath Kovind", "Narendra Modi", "New Delhi", "https://www.example.com/india_flag.jpg"));
+        // Add more countries as needed
+
+        // Example: Get information about a specific country
+        String countryName = "India";
+        CountryInfo countryInfo = countryMap.get(countryName);
+        if (countryInfo != null) {
+            System.out.println("President: " + countryInfo.getPresident());
+            System.out.println("Prime Minister: " + countryInfo.getPrimeMinister());
+            System.out.println("Capital: " + countryInfo.getCapital());
+            System.out.println("Flag URL: " + countryInfo.getFlagUrl());
+        } else {
+            System.out.println("Country not found.");
+        }
+    }
+}
+
